@@ -6,7 +6,7 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
-} 
+}
 
 SECRET_KEY = '=1gs^n^5pos#u788ix)y&&*^1@du8$7&!7z_kvj76od5&ey#)e'
 

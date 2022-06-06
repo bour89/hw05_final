@@ -52,8 +52,6 @@ def profile(request, username):
         following = False
         if Follow.objects.filter(user=request.user, author=author).exists():
             following = True
-        #else:
-        #    following = False
     context = {
         'author': author,
         'page_obj': page_obj,
@@ -152,7 +150,7 @@ def profile_follow(request, username):
     user = request.user
     author = get_object_or_404(User, username=username)
     if user != author and not Follow.objects.filter(
-        author=author, user=user).exists():
+            author=author, user=user).exists():
         Follow.objects.create(author=author, user=user)
     return redirect('yatube_posts:profile', username=username)
 
