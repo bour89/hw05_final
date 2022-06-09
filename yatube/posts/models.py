@@ -1,3 +1,4 @@
+from core.models import CreatedTimeModel
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -13,11 +14,11 @@ class Group(models.Model):
         return (self.title)
 
 
-class Post(models.Model):
+class Post(CreatedTimeModel):
     text = models.TextField(
         help_text='Введите текст поста'
     )
-    pub_date = models.DateTimeField(auto_now_add=True)
+
     group = models.ForeignKey(
         Group,
         blank=True,
@@ -44,7 +45,7 @@ class Post(models.Model):
         return(self.text[:15])
 
 
-class Comment(models.Model):
+class Comment(CreatedTimeModel):
     text = models.TextField(
         help_text='Введите текст комментария'
     )
@@ -60,7 +61,6 @@ class Comment(models.Model):
         related_name='comments',
         verbose_name='Запись'
     )
-    created = models.DateTimeField(auto_now_add=True)
 
 
 class Follow(models.Model):

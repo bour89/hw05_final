@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Group, Post
+from .models import Comment, Group, Post
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -15,5 +15,11 @@ class GroupAdmin(admin.ModelAdmin):
     search_fields = ('description',)
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('text', 'author', 'post')
+    search_fields = ('text',)
+
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Group, GroupAdmin)
+admin.site.register(Comment, CommentAdmin)
