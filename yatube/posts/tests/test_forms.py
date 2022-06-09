@@ -48,8 +48,8 @@ class PostFormTests(TestCase):
     def tearDownClass(cls):
         super().tearDownClass()
         shutil.rmtree(TEMP_MEDIA_ROOT, ignore_errors=True)
-        
-    @override_settings(CACHES = None)
+
+    @override_settings(CACHES=None)
     def setUp(self):
         # Создаем авторизованный клиент
         self.authorized_client = Client()
